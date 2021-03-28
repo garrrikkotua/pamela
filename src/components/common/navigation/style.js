@@ -83,6 +83,25 @@ export const Brand = styled.div`
     }
   }
 `
+
+export const Logo = styled.div`
+  font-family: ${props => props.theme.font.extrabold};
+  ${props => props.theme.font_size.regular};
+  color: ${props => props.theme.color.black.regular};
+  text-decoration: none;
+  letter-spacing: 1px;
+  margin: 0;
+  padding-right: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 9;
+  text-decoration: none;
+  outline: 0px;
+`
+
+
 export const ActionsContainer = styled.div`
   display: flex;
   align-items: center;
@@ -93,8 +112,8 @@ export const ActionsContainer = styled.div`
   button {
     font-family: ${props => props.theme.font.normal};
     ${props => props.theme.font_size.xsmall};
-    color: white;
-    background: #098b8c;
+    color: black;
+    background: #7aff00;
     border-radius: 4px;
     padding: 10px 16px;
     text-transform: uppercase;

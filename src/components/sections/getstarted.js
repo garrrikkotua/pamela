@@ -4,13 +4,32 @@ import styled from "styled-components"
 import { Container, Section } from "../global"
 
 const GetStarted = () => (
-  <StyledSection>
-    <GetStartedContainer>
-      <GetStartedTitle>Be the first to get the beta</GetStartedTitle>
-      <TryItButton>Get early access</TryItButton>
-      <Subtitle>No credit card required.</Subtitle>
-    </GetStartedContainer>
-  </StyledSection>
+    <div>
+      <StyledSection id='бренды'>
+        <GetStartedContainer>
+          <GetStartedTitle>Бренды, давайте знакомиться!</GetStartedTitle>
+            <FeatureItem>
+                <p style={{'text-align': 'center'}}>Неважно, какой у вас бюджет. Создайте кампанию за минуты, получите отклики,
+                    наймите подходящих подкастеров и работайте с ними прямо на платформе.
+                    На Ваших условиях.
+                </p>
+            </FeatureItem>
+          <TryItButton>Поехали!</TryItButton>
+        </GetStartedContainer>
+      </StyledSection>
+      <StyledSection2 id='подкастеры'>
+        <GetStartedContainer>
+          <GetStartedTitle>Подкастеры, ваш черёд!</GetStartedTitle>
+            <FeatureItem>
+                <p style={{'text-align': 'center'}}>
+                    Получайте деньги за размещение рекламы в подкастах. На Ваших условиях.
+                    Просматривайте предложения, питчите себя брендам, устанавливайте цены и сохраняйте свою творческую свободу.
+                </p>
+            </FeatureItem>
+          <TryItButton>Начинаем!</TryItButton>
+        </GetStartedContainer>
+      </StyledSection2>
+    </div>
 )
 
 export default GetStarted
@@ -18,6 +37,10 @@ export default GetStarted
 const StyledSection = styled(Section)`
   background-color: ${props => props.theme.color.background.light};
   clip-path: polygon(0 0, 100% 14%, 100% 100%, 0% 100%);
+`
+
+const StyledSection2 = styled(Section)`
+  background-color: ${props => props.theme.color.background.white};
 `
 
 const GetStartedContainer = styled(Container)`
@@ -36,7 +59,7 @@ const GetStartedTitle = styled.h3`
 const TryItButton = styled.button`
   font-weight: 500;
   font-size: 14px;
-  color: white;
+  color: black;
   letter-spacing: 1px;
   height: 60px;
   display: block;
@@ -67,4 +90,17 @@ const Subtitle = styled.span`
   padding-top: 16px;
   font-size: 14px;
   color: ${props => props.theme.color.primary};
+`
+
+
+const FeatureItem = styled.div`
+  max-width: 670px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    padding: 0 64px;
+  }
 `

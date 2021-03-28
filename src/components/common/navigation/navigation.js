@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Scrollspy from "react-scrollspy"
+import { graphql, StaticQuery, Link } from "gatsby"
+import Img from "gatsby-image"
 import { Menu, X } from "react-feather"
 
 import { Container } from "../../global"
@@ -8,6 +10,7 @@ import {
   Nav,
   NavItem,
   Brand,
+  Logo,
   StyledContainer,
   NavListWrapper,
   MobileMenu,
@@ -15,7 +18,10 @@ import {
   ActionsContainer,
 } from "./style"
 
-const NAV_ITEMS = ["Features", "Product", "Pricing", ""]
+import styled from "styled-components";
+
+const NAV_ITEMS = ["Продукт", "Бренды", "Подкастеры"]
+
 
 export default class Navigation extends Component {
   state = {
@@ -68,6 +74,7 @@ export default class Navigation extends Component {
     </NavListWrapper>
   )
 
+
   render() {
     const { mobileMenuOpen } = this.state
 
@@ -77,7 +84,28 @@ export default class Navigation extends Component {
           <Brand>
             <Scrollspy offset={-64} item={["top"]} currentClassName="active">
               <AnchorLink href="#top" onClick={this.closeMobileMenu}>
-                Finance
+                <span>
+                <Logo>Pamela</Logo>
+                <StaticQuery
+                        query={graphql`
+                              query {
+                                file(sourceInstanceName: { eq: "product" }, name: { eq: "pomelo_green" }) {
+                                  childImageSharp {
+                                    fixed(width: 40, height: 40) {
+                                      ...GatsbyImageSharpFixed
+                                    }
+                                  }
+                                }
+                              }
+                        `}
+                        render={data => (
+                            <ImageWrapper>
+                                <BrandImg fixed={data.file.childImageSharp.fixed} />
+                            </ImageWrapper>
+                        )
+                        }
+                    />
+                </span>
               </AnchorLink>
             </Scrollspy>
           </Brand>
@@ -96,7 +124,7 @@ export default class Navigation extends Component {
 
           <Mobile hide>{this.getNavList({})}</Mobile>
           <ActionsContainer>
-            <button>Sign up</button>
+            <button>Join list</button>
           </ActionsContainer>
         </StyledContainer>
         <Mobile>
@@ -110,3 +138,12 @@ export default class Navigation extends Component {
     )
   }
 }
+
+const ImageWrapper = styled.div`
+  display: inline;
+  `
+
+const BrandImg = styled(Img)`
+  vertical-align: 'middle';
+  top: 10px;
+`

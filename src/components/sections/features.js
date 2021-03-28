@@ -4,44 +4,33 @@ import styled from "styled-components"
 import { Section, Container } from "../global"
 
 const Features = () => (
-  <Section id="features">
+  <Section id="продукт">
     <StyledContainer>
-      <Subtitle>Features</Subtitle>
-      <SectionTitle>Smart money management</SectionTitle>
+      <Subtitle>Продукт</Subtitle>
+      <SectionTitle>Рекламные интеграции &mdash; это просто</SectionTitle>
       <FeaturesGrid>
         <FeatureItem>
-          <FeatureTitle>Notifications</FeatureTitle>
+          <FeatureTitle>Маркетплейс</FeatureTitle>
           <FeatureText>
-            Receive budget and spending alerts based on your favorite triggers.
+            <strong>Pamela</strong> объединяет подкасты, агентства и бренды под одной крышей. Делайте правильный выбор быстрее!
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Security</FeatureTitle>
+          <FeatureTitle>Поиск</FeatureTitle>
           <FeatureText>
-            Your data is always safe with us as we use the latest security
-            protocols.
+            Тематические фильтры помогут быстро найти подкаст, подходящий вашей аудитории.
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Automation</FeatureTitle>
+          <FeatureTitle>Форматы</FeatureTitle>
           <FeatureText>
-            Create smart automated workflows and triggers for your money.
+            От органической рекламы до тематических дискуссий <strong>Pamela</strong> специализируется на интеграциях, которые находят отклик у слушателей.
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Aggregation</FeatureTitle>
+          <FeatureTitle>Прозрачность</FeatureTitle>
           <FeatureText>
-            Easily link up to 5 banks to your finance account.
-          </FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Payments</FeatureTitle>
-          <FeatureText>Send money to friends and family with ease.</FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Rewards</FeatureTitle>
-          <FeatureText>
-            High interest and rewards for hitting your goals.
+            Никаких скрытых платежей. <strong>Pamela</strong> устраняет посредника, давая брендам и подкастерам больше ценности, прозрачности, свободы и контроля.
           </FeatureText>
         </FeatureItem>
       </FeaturesGrid>

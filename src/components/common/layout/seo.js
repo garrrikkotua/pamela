@@ -11,7 +11,6 @@ const SEO = ({ description, lang, meta, title }) => {
           siteMetadata {
             title
             description
-            author
           }
         }
       }
@@ -50,7 +49,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: 'Pamela',
         },
         {
           name: `twitter:title`,

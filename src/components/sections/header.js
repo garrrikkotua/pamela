@@ -2,15 +2,16 @@ import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
+import Scrollspy from "react-scrollspy"
 
 import { Container } from "../global"
 
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(sourceInstanceName: { eq: "product" }, name: { eq: "green-skew" }) {
+      file(sourceInstanceName: { eq: "product" }, name: { eq: "micro_md" }) {
         childImageSharp {
-          fluid(maxWidth: 1000) {
+          fluid(maxWidth: 750, maxHeight: 750) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
@@ -18,33 +19,35 @@ const Header = () => {
     }
   `)
 
-  const handleSubmit = event => {
-    event.preventDefault()
-  }
 
   return (
     <HeaderWrapper id="top">
       <Container>
         <Flex>
           <HeaderTextGroup>
-            <Subtitle>Personal Finance</Subtitle>
+            <Subtitle>Рекламный маркетплейс</Subtitle>
             <h1>
-              All your money,
+              Бренды и подкастеры,
               <br />
-              one account
+              в одном месте
             </h1>
             <h2>
-              We're building next generation personal finance tools. Sign up to
-              get early access.
+              Соединяем уникальные голоса и бренды для нативной рекламы в подкастах
             </h2>
-            <HeaderForm onSubmit={handleSubmit}>
-              <HeaderInput placeholder="Your email" />
-              <HeaderButton>Early access</HeaderButton>
+            <HeaderForm>
+              {/* <HeaderInput placeholder="Your email" /> */}
+              <HeaderButton onClick={(e) => {
+                            e.preventDefault();
+                            window.location.href='/brands';
+                            }}
+              >Для брендов</HeaderButton>
+              <HeaderButton onClick={(e) => {
+                            e.preventDefault();
+                            window.location.href='/podcasters';
+                            }}
+                            style={{'background-color': "#cca86e"}}
+              >Для подкастеров</HeaderButton>
             </HeaderForm>
-            <FormSubtitle>
-              Already have a beta account?{" "}
-              <FormSubtitleLink to="/">Sign in</FormSubtitleLink>
-            </FormSubtitle>
           </HeaderTextGroup>
           <ImageWrapper>
             <StyledImage fluid={data.file.childImageSharp.fluid} />
@@ -163,11 +166,12 @@ const HeaderInput = styled.input`
 const HeaderButton = styled.button`
   font-weight: 500;
   font-size: 14px;
-  color: white;
+  color: black;
   letter-spacing: 1px;
   height: 60px;
   display: block;
   margin-left: 8px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;
@@ -190,7 +194,7 @@ const HeaderButton = styled.button`
 `
 const ImageWrapper = styled.div`
   justify-self: end;
-  align-self: center;
+  align-self: start;
   @media (max-width: ${props => props.theme.screen.md}) {
     justify-self: center;
   }
