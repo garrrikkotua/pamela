@@ -70,7 +70,7 @@ export default class Nav2 extends Component {
                                 file(sourceInstanceName: { eq: "product" }, name: { eq: "pomelo_green" }) {
                                   childImageSharp {
                                     fixed(width: 40, height: 40) {
-                                      ...GatsbyImageSharpFixed
+                                      ...GatsbyImageSharpFixed_tracedSVG
                                     }
                                   }
                                 }
