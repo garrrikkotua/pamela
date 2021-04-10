@@ -3,6 +3,18 @@ import styled from "styled-components"
 
 import { Container, Section } from "../global"
 
+const handleBrand = (e) => {
+    e.preventDefault();
+    window.location.href = '/brands'
+};
+
+const handlePodcast = (e) => {
+    e.preventDefault();
+    window.location.href = '/podcasters'
+};
+
+
+
 const GetStarted = () => (
     <div>
       <StyledSection id='бренды'>
@@ -14,7 +26,7 @@ const GetStarted = () => (
                     На Ваших условиях.
                 </p>
             </FeatureItem>
-          <TryItButton>Поехали!</TryItButton>
+          <TryItButton onClick={handleBrand}>Поехали!</TryItButton>
         </GetStartedContainer>
       </StyledSection>
       <StyledSection2 id='подкастеры'>
@@ -26,7 +38,7 @@ const GetStarted = () => (
                     Просматривайте предложения, питчите себя брендам, устанавливайте цены и сохраняйте свою творческую свободу.
                 </p>
             </FeatureItem>
-          <TryItButton>Начинаем!</TryItButton>
+          <TryItButton onClick={handlePodcast} style={{'background-color': "#cca86e"}}>Начинаем!</TryItButton>
         </GetStartedContainer>
       </StyledSection2>
     </div>

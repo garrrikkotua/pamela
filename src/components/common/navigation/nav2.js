@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { graphql, StaticQuery, Link } from "gatsby"
+import Scrollspy from "react-scrollspy"
 import Img from "gatsby-image"
 import { Menu, X } from "react-feather"
 
@@ -23,7 +24,22 @@ const NAV_ITEMS = [{'item': 'Бренды', 'link': '/brands'}, {'item': 'Под
 export default class Nav2 extends Component {
   state = {
     mobileMenuOpen: false,
+    hasScrolled: false,
   };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll)
+  }
+
+  handleScroll = event => {
+    const scrollTop = window.pageYOffset
+
+    if (scrollTop > 32) {
+      this.setState({ hasScrolled: true })
+    } else {
+      this.setState({ hasScrolled: false })
+    }
+  }
 
 
   toggleMobileMenu = () => {
@@ -58,7 +74,7 @@ export default class Nav2 extends Component {
     const { mobileMenuOpen } = this.state;
 
     return (
-      <Nav scrolled={false}>
+      <Nav scrolled={this.state.hasScrolled}>
         <StyledContainer>
           <Brand>
               <Link to="/" style={{'text-decoration': 'none'}} onClick={this.closeMobileMenu}>

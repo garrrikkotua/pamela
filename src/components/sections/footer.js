@@ -45,7 +45,7 @@ const Footer = () => (
                 file(sourceInstanceName: { eq: "product" }, name: { eq: "pomelo_green" }) {
                   childImageSharp {
                     fixed(width: 40, height: 40) {
-                      ...GatsbyImageSharpFixed
+                      ...GatsbyImageSharpFixed_tracedSVG
                     }
                   }
                 }
